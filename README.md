@@ -8,9 +8,9 @@ We've seen many different styles of form management by now -- simple to complex.
 
 ### Task 1: Set Up The Project
 
-- [ ] Fork and clone the repository and `cd` into the directory.
-- [ ] Start off by installing a blank React app by running `npx create-react-app user-onboarding`.
-- [ ] `cd` into the newly created `user-onboarding` folder.
+- [x] Fork and clone the repository and `cd` into the directory.
+- [x] Start off by installing a blank React app by running `npx create-react-app user-onboarding`.
+- [x] `cd` into the newly created `user-onboarding` folder.
 - [ ] Using `npm`, add the following as dependencies inside your React app:
   - `yup`
   - `axios`
