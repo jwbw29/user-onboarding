@@ -1,40 +1,34 @@
 import { useState, useEffect } from "react";
 import * as yup from "yup";
 import yupPassword from "yup-password";
+import axios from "axios";
+
 yupPassword(yup);
 
-/*
-# Checklist
-[ ] form UI
-[ ] submit handler
-[ ] yup schema
-[ ] apply yup validations
-*/
+const schema = yup.object().shape({
+  fname: yup.string().required("First name is required"),
+  lname: yup.string().required("Last name is required"),
+  email: yup
+    .string()
+
+    .email("Invalid email")
+    .required("Valid email address is required"),
+  password: yup
+    .string()
+    .password(
+      "Password must contain at least 8 characters, at most 250 characters, at least 1 lowercase letter, at least 1 uppercase letter, at least 1 number and at least 1 symbol"
+    )
+    .required("Password is required"),
+  consent: yup
+    .boolean()
+    .oneOf([true], "You must agree to the Terms & Service Conditions"),
+});
 
 export default function Form() {
-  // [ ] Submit Form
   // [ ] Render the submit button
 
   // [x] Define validation schema
   //* might need to move this out of the Form
-  const schema = yup.object().shape({
-    fname: yup.string().trim().required("First name is required"),
-    lname: yup.string().trim().required("Last name is required"),
-    email: yup
-      .string()
-      .trim()
-      .email("Invalid email")
-      .required("Valid email address is required"),
-    password: yup
-      .string()
-      .password(
-        "Password must contain at least 8 characters, at most 250 characters, at least 1 lowercase letter, at least 1 uppercase letter, at least 1 number and at least 1 symbol"
-      )
-      .required("Password is required"),
-    consent: yup
-      .boolean()
-      .oneOf([true], "You must agree to the Terms & Service Conditions"),
-  });
 
   // [x] Set up state
   const [formData, setFormData] = useState({
@@ -56,24 +50,47 @@ export default function Form() {
   // [x] Handle Form Changes
   const handleChange = (evt) => {
     const { name, value } = evt.target;
-    setFormData({ ...FormData, [name]: value });
+    setFormData({ ...formData, [name]: value });
   };
 
+  //   const [disabled, setDisabled] = useState(true);
+
+  // [x] Submit Form
   const formSubmit = (evt) => {
     evt.preventDefault();
-    console.log("submitted");
+    // - when we click submit, let's create a new user
+    const newUser = {
+      fname: formData.fname.trim(),
+      lname: formData.lname.trim(),
+      email: formData.email,
+      password: formData.password,
+      consent: formData.consent,
+    };
+    // - also when we click, let's send this data somewhere
+    axios
+      .post("https://reqres.in/api/users", newUser) //where to and what?
+      .then((res) => {
+        //- once we post successfully, clear the form
+        setFormData({
+          fname: "",
+          lname: "",
+          email: "",
+          password: "",
+          consent: false,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
-  const [disabled, setDisabled] = useState(true);
-
   // [x] Perform validation
-  useEffect(() => {
-    schema.isValid(formData).then((valid) => setDisabled(!valid));
-  });
+  //   useEffect(() => {
+  //     schema.isValid(formData).then((valid) => setDisabled(!valid));
+  //   });
 
   // [x] Render Form and display Errors
   return (
-    <div className="bg-grey-lighter min-h-screen flex flex-col">
       <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
         <form
           onSubmit={formSubmit}
@@ -143,13 +160,12 @@ export default function Form() {
 
           <button
             type="submit"
-            disabled={disabled}
+            // disabled={disabled}
             className="w-full text-center py-3 rounded bg-green-600 text-white hover:bg-green-dark focus:outline-none my-1 disabled:bg-slate-300 disabled:text-slate-500"
           >
             Create Account
           </button>
         </form>
       </div>
-    </div>
   );
 }

@@ -1,7 +1,13 @@
 import Form from "./Form";
+import Users from "./Users";
 
 function App() {
-  return <Form />;
+  return (
+    <div className="bg-grey-lighter min-h-screen flex flex-col">
+      <Form />
+      <Users />
+    </div>
+  );
 }
 
 export default App;
