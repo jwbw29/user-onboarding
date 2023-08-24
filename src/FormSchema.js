@@ -12,8 +12,22 @@ const formSchema = yup.object().shape({
     .required("Valid email address is required"),
   password: yup
     .string()
-    .password(
-      "Password must contain at least 8 characters, at most 250 characters, at least 1 lowercase letter, at least 1 uppercase letter, at least 1 number and at least 1 symbol"
+    // .password("Must contain")
+    .minLowercase(
+      1,
+      "Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 symbol."
+    )
+    .minUppercase(
+      1,
+      "Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 symbol."
+    )
+    .minNumbers(
+      1,
+      "Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 symbol."
+    )
+    .minSymbols(
+      1,
+      "Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 symbol."
     )
     .required("Password is required"),
   consent: yup

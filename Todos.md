@@ -1,6 +1,4 @@
 # Work left to do
 
-- [ ] **BUG** when I type a character in to first_name it errors out. But no other fields do that
-
-- [ ] Still need to disable the button when form isn't filled out completely
-- [x] Pick up at the "Display Returned Data to Screen"
+- [ ] Existing email validation
+  - Add to existing handling so that, if a user inputs their email as `waffle@syrup.com`, they receive an error message in their form that says _"That email is already taken."_

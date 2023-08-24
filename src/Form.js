@@ -27,7 +27,7 @@ export default function Form(props) {
         <h1 className="mb-8 text-3xl text-center">Sign up</h1>
         <input
           type="text"
-          className="block border border-grey-light w-full p-3 rounded mb-4"
+          className="block border border-grey-light w-full p-3 rounded mt-4"
           name="first_name"
           value={values.first_name}
           onChange={onChange}
@@ -37,7 +37,7 @@ export default function Form(props) {
 
         <input
           type="text"
-          className="block border border-grey-light w-full p-3 rounded mb-4"
+          className="block border border-grey-light w-full p-3 rounded mt-4"
           name="last_name"
           value={values.last_name}
           onChange={onChange}
@@ -47,7 +47,7 @@ export default function Form(props) {
 
         <input
           type="email"
-          className="block border border-grey-light w-full p-3 rounded mb-4"
+          className="block border border-grey-light w-full p-3 rounded mt-4"
           name="email"
           value={values.email}
           onChange={onChange}
@@ -57,7 +57,7 @@ export default function Form(props) {
 
         <input
           type="password"
-          className="block border border-grey-light w-full p-3 rounded mb-4"
+          className="block border border-grey-light w-full p-3 rounded mt-4"
           name="password"
           value={values.password}
           onChange={onChange}
@@ -65,7 +65,7 @@ export default function Form(props) {
         />
         <div className="text-red-500 text-sm">{errors.password}</div>
 
-        <label className="text-xs block w-full pb-3">
+        <label className="text-xs block w-full py-4">
           {" "}
           <input
             type="checkbox"
