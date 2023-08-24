@@ -1,4 +1,7 @@
 import * as yup from "yup";
+import yupPassword from "yup-password";
+
+yupPassword(yup);
 
 const formSchema = yup.object().shape({
   first_name: yup.string().required("First name is required"),

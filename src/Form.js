@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
 import * as yup from "yup";
+
 import yupPassword from "yup-password";
-import axios from "axios";
 
 yupPassword(yup);
 
@@ -35,8 +34,6 @@ export default function Form(props) {
           placeholder="First Name"
         />
         <div className="text-red-500 text-sm">{errors.first_name}</div>
-        {/* {errors.first_name && (
-          )} */}
 
         <input
           type="text"
@@ -47,8 +44,6 @@ export default function Form(props) {
           placeholder="Last Name"
         />
         <div className="text-red-500 text-sm">{errors.last_name}</div>
-        {/* {errors.last_name && (
-          )} */}
 
         <input
           type="email"
@@ -59,8 +54,6 @@ export default function Form(props) {
           placeholder="Email"
         />
         <div className="text-red-500 text-sm">{errors.email}</div>
-        {/* {errors.email && (
-          )} */}
 
         <input
           type="password"
@@ -71,8 +64,6 @@ export default function Form(props) {
           placeholder="Password"
         />
         <div className="text-red-500 text-sm">{errors.password}</div>
-        {/* {errors.password && (
-          )} */}
 
         <label className="text-xs block w-full pb-3">
           {" "}
@@ -85,11 +76,9 @@ export default function Form(props) {
           Agree to the Terms & Service Conditions
         </label>
         <div className="text-red-500 text-sm">{errors.consent}</div>
-        {/* {errors.consent && (
-          )} */}
 
         <button
-          type="submit"
+          // type="submit"
           disabled={disabled}
           className="w-full text-center py-3 rounded bg-green-600 text-white hover:bg-green-dark focus:outline-none my-1"
         >
