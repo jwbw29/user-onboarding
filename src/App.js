@@ -49,7 +49,7 @@ function App() {
   const postNewMember = (newMember) => {
     axios
       .post("https://reqres.in/api/users")
-      .then((res) => setMembers([res.data, ...members]))
+      .then((res) => setMembers([newMember, ...members]))
       .catch((err) => console.error(err))
       .finally(() => setFormValues(initialFormValues));
   };

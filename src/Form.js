@@ -30,7 +30,7 @@ export default function Form(props) {
           className="block border border-grey-light w-full p-3 rounded mb-4"
           name="first_name"
           value={values.first_name}
-          onChange={change}
+          onChange={onChange}
           placeholder="First Name"
         />
         <div className="text-red-500 text-sm">{errors.first_name}</div>
