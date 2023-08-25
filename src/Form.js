@@ -33,7 +33,9 @@ export default function Form(props) {
           onChange={onChange}
           placeholder="First Name"
         />
-        <div className="text-red-500 text-sm">{errors.first_name}</div>
+        <div id="fname-error" className="text-red-500 text-sm">
+          {errors.first_name}
+        </div>
 
         <input
           type="text"
@@ -43,7 +45,9 @@ export default function Form(props) {
           onChange={onChange}
           placeholder="Last Name"
         />
-        <div className="text-red-500 text-sm">{errors.last_name}</div>
+        <div id="lname-error" className="text-red-500 text-sm">
+          {errors.last_name}
+        </div>
 
         <input
           type="email"
@@ -53,7 +57,9 @@ export default function Form(props) {
           onChange={onChange}
           placeholder="Email"
         />
-        <div className="text-red-500 text-sm">{errors.email}</div>
+        <div id="email-error" className="text-red-500 text-sm">
+          {errors.email}
+        </div>
 
         <input
           type="password"
@@ -63,7 +69,9 @@ export default function Form(props) {
           onChange={onChange}
           placeholder="Password"
         />
-        <div className="text-red-500 text-sm">{errors.password}</div>
+        <div id="password-error" className="text-red-500 text-sm">
+          {errors.password}
+        </div>
 
         <label className="text-xs block w-full py-4">
           {" "}
@@ -75,10 +83,12 @@ export default function Form(props) {
           />{" "}
           Agree to the Terms & Service Conditions
         </label>
-        <div className="text-red-500 text-sm">{errors.consent}</div>
+        <div id="consent-error" className="text-red-500 text-sm">
+          {errors.consent}
+        </div>
 
         <button
-          // type="submit"
+          id="createBtn"
           disabled={disabled}
           className="w-full text-center py-3 rounded bg-green-600 text-white hover:bg-green-dark focus:outline-none my-1"
         >
