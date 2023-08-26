@@ -4,7 +4,7 @@ export default function Members({ details }) {
   }
 
   return (
-    <div className="container pb-2 pt-6 border-b-2 text-center">
+    <div id="newMember" className="container pb-2 pt-6 border-b-2 text-center">
       <h2 className="text-2xl">
         {details.first_name} {details.last_name}
       </h2>

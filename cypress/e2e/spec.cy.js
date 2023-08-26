@@ -16,6 +16,8 @@ describe("Form App", () => {
   const emailErr = () => cy.get("#email-error");
   const passwordErr = () => cy.get("#password-error");
   const consentErr = () => cy.get("#consent-error");
+  const newMemberName = () => cy.get("#newMember h2");
+  const newMemberEmail = () => cy.get("#newMember p");
 
   it("sanity check", () => {
     expect(1 + 2).to.equal(3);
@@ -105,7 +107,7 @@ describe("Form App", () => {
 
   // [x] SUBMITTING THE FORM DATA //////
   describe("Submitting the form data", () => {
-    it("Create Account button is enabled and clears form when submitted", () => {
+    it("Create Account button is enabled, clears form when submitted, and adds new member to the Users list", () => {
       firstInput().type("Justin");
       lastInput().type("Byrd");
       email().type("justinbyrd7@gmail.com");
@@ -123,16 +125,15 @@ describe("Form App", () => {
       email().should("have.value", "");
       password().should("have.value", "");
       consent().should("not.be.checked");
+      newMemberName().contains("Justin Byrd");
+      newMemberEmail().contains("justinbyrd7@gmail.com");
     });
 
     // [ ] WHEN NEW USER IS ADDED, DOES THEIR NAME AND EMAIL DISPLAY IN THE USERS SECTION? ////////
-    // it('New user name and email displays at top of list', () =>{
+    // it("New user name and email displays at top of list", () => {
     //   // ! might need to add an ID to the div
     //   // ! OR use some sort of nth-of-child
     //   // ! AND combine fname and lname to just the h2 header
-    //   .contains('Justin')
-    //   .contains('Byrd')
-    //   .contains('justinbyrd7@gmail.com')
-    // })
+    // });
   });
 });
