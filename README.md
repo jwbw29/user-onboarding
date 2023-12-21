@@ -1,6 +1,8 @@
 # Current State
 
-![Home page](/assets/Screen Shot 2023-12-21 at 11.02.05 AM.png)
+![Home page](<assets/Screen Shot 2023-12-21 at 11.02.05 AM.png>)
+![Error Handling](<assets/Screen Shot 2023-12-21 at 11.02.22 AM.png>)
+![adding user](<assets/Screen Recording 2023-12-21 at 11.02.52 AM.gif>)
 
 # Features
 
