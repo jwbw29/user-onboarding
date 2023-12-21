@@ -1,6 +1,6 @@
 # Current State
 
-![Home page]("/assets/Screen Shot 2023-12-21 at 11.02.05 AM.png")
+![Home page](/assets/Screen Shot 2023-12-21 at 11.02.05 AM.png)
 
 # Features
 
